@@ -41,3 +41,69 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.header {
+	background-image: url(../files/img/head.png);
+	width: 1400px;
+	height: 730px;
+	margin: 0 auto;
+	color: white;
+}
+
+.header__container {
+	width: 940px;
+	margin: 0 auto;
+	padding-top: 45px;
+}
+
+.header__container__logo {
+	float: left;
+	background-image: url(../files/img/Logo.png);
+	width: 79px;
+	height: 28px;
+	/*background-color: black;*/
+}
+
+.header__container__menu {
+	float: right;
+}
+
+.header__container__menu ul {
+	margin: 0;
+}
+
+.header__container__menu ul li {
+	display: inline-block;
+	margin-left: 40px;
+	font-size: 23px;
+	text-transform: uppercase;
+}
+
+.header__text1 {
+	font-size: 25px;
+	text-transform: capitalize;
+	margin: 210px auto 0 490px;
+}
+
+.header__text2 {
+	margin: 50px auto 50px 280px;
+	text-transform: uppercase;
+	font-size: 40px;
+}
+
+.header__button {
+	text-transform: uppercase;
+	width: 240px;
+	height: 65;
+	margin: 0 auto;
+	background-color: #fed136;
+	padding: 20px 25px;
+}
+
+.header__button a {
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	margin: 0 auto;
+	padding: 0 auto;
+}
