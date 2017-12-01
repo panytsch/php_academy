@@ -43,9 +43,12 @@ table {
 }
 
 .header {
-	background-image: url(../files/img/head.png);
-	width: 1400px;
-	height: 730px;
+	background: url(../files/img/head.png) center;
+	background-repeat: no-repeat;
+	height: 700px;
+	background-size: cover;
+	/*width: 1400px;*/
+	/*height: 730px;*/
 	margin: 0 auto;
 	color: white;
 }
@@ -116,52 +119,126 @@ table {
 	cursor: pointer;
 }
 
-.items {
-	width: 1400px;
-	margin: 0 auto;
-}
-
-.items__servic {
-	width: 940px;
+.serv {
 	margin: 120px 230px;
+	width: 940px;
 	background-color: #fff;
-}
-
-.items__servic__title {
-	margin: 0 auto;
-	color: #000;
-	font: bold 40pt/40pt Arial, sans-serif;
 	text-align: center;
+	overflow: hidden;
+}
+
+
+.serv__par {
+	color: #222;
 	text-transform: uppercase;
+	margin-bottom: 15px;
+	font: bold 40pt/40pt Arial, sans-serif;
 }
 
-.items__servic p {
-	text-transform: none;
-	margin-top: 20px;
-	color: #777777;
-	font: 16pt/16pt 'Times new Roman', sans-serif;
+.serv__desc {
+	font: 16pt/16pt 'Times New Roman', Arial, sans-serif;
+	color: #777;
 }
 
-.items__servic__content {
-	background-color: #000;
+.serv__cont {
 	margin-top: 80px;
 }
 
-.items__servic__cont1,
-.items__servic__cont2
-.items__servic__cont3 {
-	width: 270px;
+.serv__cont__ecom {
+	background: url(../files/img/ecom2.png) no-repeat top;
+	width: 30%;
+	margin-right: 5%;
 	float: left;
 }
 
-.items__servic__cont2 {
-	margin: 0 65px 0;
+.serv__cont__ecom:last-child {
+	margin-right: 0;
+	background: url(../files/img/ecom3.png) no-repeat top;
 }
 
-.items__servic__logo {
-	background-image: url(../files/img/ecom1.png);
-	margin: 0 auto 25px;
-	width: 78px;
-	height: 77px;
+.serv__cont__ecom:first-child {
+	background: url(../files/img/ecom1.png) no-repeat top;
 }
 
+.serv__cont__ecom h5 {
+	margin-top: 100px;
+	font: bold 18pt/18pt Arial, sans-serif;
+	color: #222;
+}
+
+.serv__cont__ecom p {
+	margin-top: 10px;
+	font: 18pt/24pt 'Times New Roman', sans-serif;
+	color: #777;
+}
+
+.back {
+	background-color: #f7f7f7;
+	width: 100%;
+	overflow: hidden;
+}
+
+.port {
+	background: #f7f7f7;
+	padding: 120px 240px;
+	width: 940px;
+	overflow: hidden; /*don't touch!!! it work!*/
+	text-align: center;
+}
+
+.port__cont {
+	margin-top: 80px;
+}
+
+.port__cont div {
+	width: 290px;
+	margin-right: 35px;
+	float: left;
+	padding: 0;
+}
+
+.port__cont div h5 {
+	font: bold 18pt/24pt Arial, sans-serif;
+	color: #333333;
+	text-transform: capitalize;
+	margin-top: 330px;
+} 
+.port__cont div p {
+	font: 14pt/18pt 'Times New Roman', Arial, sans-serif;
+	color: #737373;
+	text-transform: capitalize;
+	margin-bottom: 25px;
+}
+
+.port__cont_it1 {
+	background: #fff url(../files/img/1.jpg) no-repeat top;
+}
+
+.port__cont_it2 {
+	background: #fff url(../files/img/2.jpg) no-repeat top;
+}
+
+
+.port__cont_it3 {
+	background: #fff url(../files/img/3.jpg) no-repeat top;
+	margin-right: 0!important;
+}
+
+.port__cont_it4 {
+	background: #fff url(../files/img/4.jpg) no-repeat top;
+}
+
+.port__cont_it5 {
+	background: #fff url(../files/img/5.jpg) no-repeat top;
+}
+
+.port__cont_it6 {
+	background: #fff url(../files/img/6.jpg) no-repeat top;
+	margin-right: 0!important;
+}
+
+.port__cont_it1,
+.port__cont_it2,
+.port__cont_it3 {
+	margin-bottom: 50px;
+}
