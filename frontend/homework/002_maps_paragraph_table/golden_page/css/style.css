@@ -241,3 +241,98 @@ table {
 .port__cont_it3 {
 	margin-bottom: 50px;
 }
+
+
+.about {
+	padding-top: 80px;
+	overflow: hidden;
+}
+
+.about__left,
+.about__right {
+	display: inline-block;
+	width: 36.5%;
+	float: left;
+}
+
+.about__center1 {
+	float: left;
+	display: inline-block;
+	width: 183px;
+	height: 183px;
+	background: url(../files/img/about_1.jpg) no-repeat top;
+	margin: 0 35px;
+}
+
+.about__center2 {
+	float: left;
+	display: inline-block;
+	width: 183px;
+	height: 183px;
+	background: url(../files/img/about_2.jpg) no-repeat top;
+	margin: 0 35px;
+}
+
+.about__center3 {
+	float: left;
+	display: inline-block;
+	width: 183px;
+	height: 183px;
+	background: url(../files/img/about_3.jpg) no-repeat top;
+	margin: 0 35px;
+}
+
+.about__center4 {
+	float: left;
+	display: inline-block;
+	width: 183px;
+	height: 183px;
+	background: url(../files/img/about_4.jpg) no-repeat top;
+	margin: 0 35px;
+}
+
+.about__center5 {
+	display: inline-block;
+	float: left;
+	margin: 0 35px;
+	width: 183px;
+	height: 183px;
+	background: url(../files/img/about_5.jpg) no-repeat center;
+}
+
+.about__left p,
+.about__right p {
+	font: 16pt/22pt 'Times New Roman';
+	color: #777;
+}
+
+.about__left h5,
+.about__right h5 {
+	font: bold 18pt/25pt Arial, sans-serif;
+	color: #222;
+	margin-bottom: 10px;
+}
+
+.about__left{
+	text-align: right;
+}
+
+.about__right {
+	text-align: left;
+}
+
+.about div hr {
+	width: 3px;
+	border: none;
+	background-color: #f1f1f1;
+	height: 100%;
+}
+
+.about div hr.bot {
+	margin-top: 183px;
+}
+
+.about div hr.top {
+	margin-top: -80px;
+	height: 80px;
+}
