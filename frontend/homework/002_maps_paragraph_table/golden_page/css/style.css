@@ -460,3 +460,142 @@ table {
 	float: center;
 	margin: 0 5px;
 }
+
+.foo {
+	background: url(../files/img/map.png) no-repeat center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.foo h3 {
+	text-transform: uppercase;
+	font: bold 40pt/40pt Arial, sans-serif;
+	color: #fff;
+	margin-bottom: 15px;
+	margin-top: 110px;
+}
+
+.foo p {
+	font: 16pt/16pt 'Times New Roman';
+	color: #777;
+}
+
+.footer {
+	width: 940px;
+	margin: 80px auto 30px;
+	overflow: hidden;
+	height: 230px;
+}
+
+.footer__left {
+	display: inline-block;
+	width: 45%;
+	float: left;
+	margin-right: 10%;
+	height: inherit;
+}
+
+.footer__right {
+	display: inline-block;
+	width: 45%;
+	float: left;
+	height: inherit;
+	overflow: hidden;
+}
+
+.footer__left form textarea {
+	width: 100%;
+	font: bold 14pt/50px Arial, sans-serif;
+	text-transform: uppercase;
+	height: 50px;
+	color: #bbb;
+	padding-left: 20px;
+	border: none;
+	border-radius: 4px;
+	resize: none;
+}
+
+.footer__left form textarea:nth-child(2) {
+	margin: 30px 0;
+}
+
+.footer__right form textarea {
+	width: 100%;
+	font: bold 14pt/50px Arial, sans-serif;
+	text-transform: uppercase;
+	padding-left: 20px;
+	height: 223px;
+	color: #bbb;
+	border: none;
+	border-radius: 4px;
+	resize: none;
+}
+
+.foo button {
+	display: inline-block;
+	text-align: center;
+	color: #fff;
+	background-color: #fed136;
+	font: bold 24pt/24pt Arial, sans-serif;
+	padding: 20px 20px;
+	text-transform: uppercase;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 115px;
+}
+
+.end {
+	background-color: #fff;
+	width: 100%;
+}
+
+.end__cont {
+	width: 940px;
+	margin: 40px auto;
+	overflow: hidden;
+}
+
+
+.end__cont__copy {
+	text-align: left;
+	display: block;
+	font: 14pt/41px Arial, sans-serif;
+	color: #555;
+	float: left;
+	height: 41px;
+	margin-right: 60px;
+}
+
+.end__cont__twit {
+	display: inline-block;
+	background: url(../files/img/twit.png) no-repeat center;
+	width: 41px;
+	height: 41px;
+	float: left;
+}
+
+.end__cont__face {
+	display: inline-block;
+	background: url(../files/img/face.png) no-repeat center;
+	width: 41px;
+	height: 41px;
+	float: left;
+	margin: 0 5px;
+}
+
+.end__cont__pint {
+	display: inline-block;
+	background: url(../files/img/pint.png) no-repeat center;
+	width: 41px;
+	height: 41px;
+	float: left;
+	margin-right: 5px;
+}
+
+.end__cont__goog {
+	display: inline-block;
+	background: url(../files/img/goog.png) no-repeat center;
+	width: 41px;
+	height: 41px;
+	float: left;
+}
