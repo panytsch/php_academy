@@ -336,3 +336,127 @@ table {
 	margin-top: -80px;
 	height: 80px;
 }
+
+.upper {
+	text-transform: uppercase;
+}
+
+.backteam {
+	background-color: #f9f9f9;
+	width: 100%;
+	overflow: hidden;
+}
+
+.team {
+	width: 940px;
+	margin: 120px auto;
+	overflow: hidden;
+}
+
+.team__name {
+	background: url(../files/img/team.png) no-repeat top;
+	width: 30%;
+	float: left;
+	margin-top: 70px;
+
+}
+
+.team__text1 {
+	font: bold 16pt/21pt Arial, sans-serif;
+	color: #222;
+	margin-top: 260px;
+}
+
+.team__text2 {
+	font: 14pt/24pt Arial, sans-serif;
+	color: #777;
+	margin-bottom: 10px;i
+}
+
+.team__name__logot {
+	display: inline-block;
+	background: url(../files/img/Twitter.png);
+	width: 41px;
+	height: 41px;
+	float: center;
+	margin: 0 5px;
+}
+
+.team__name__logof {
+	display: inline-block;
+	background: url(../files/img/Facebook.png);
+	width: 41px;
+	height: 41px;
+	float: center;
+	margin: 0 5px;
+}
+
+.team__name__logop {
+	display: inline-block;
+	background: url(../files/img/Pinterest.png);
+	width: 41px;
+	height: 41px;
+	float: center;
+	margin: 0 5px;
+}
+
+.team__name__logog {
+	display: inline-block;
+	background: url(../files/img/Google+.png);
+	width: 41px;
+	height: 41px;
+	float: center;
+	margin: 0 5px;
+}
+
+.team__p {
+	clear: both;
+	font: 16pt/25pt 'Times New Roman', Arial, sans-serif;
+	text-align: center;
+	color: #777;
+	width: 940px;
+	padding-top: 50px;
+}
+
+.logos {
+	width: 100%;
+	background-color: #fff;
+	margin: 60px auto;
+	overflow: hidden;
+}
+
+.envato {
+	display: inline-block;
+	background: url(../files/img/envato.png) no-repeat center;
+	width: 161px;
+	height: 42px;
+	float: center;
+	margin: 0 5px;
+}
+
+.wordpress {
+	display: inline-block;
+	background: url(../files/img/wordpress.png) no-repeat center;
+	width: 186px;
+	height: 42px;
+	float: center;
+	margin: 0 5px;
+}
+
+.tuts {
+	display: inline-block;
+	background: url(../files/img/tuts.png) no-repeat center;
+	width: 131px;
+	height: 42px;
+	float: center;
+	margin: 0 5px;
+}
+
+.microlancer {
+	display: inline-block;
+	background: url(../files/img/microlancer.png) no-repeat center;
+	width: 167px;
+	height: 42px;
+	float: center;
+	margin: 0 5px;
+}
