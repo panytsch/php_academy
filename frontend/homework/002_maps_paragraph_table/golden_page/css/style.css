@@ -120,7 +120,7 @@ table {
 }
 
 .serv {
-	margin: 120px 230px;
+	margin: 120px auto;
 	width: 940px;
 	background-color: #fff;
 	text-align: center;
@@ -179,8 +179,7 @@ table {
 }
 
 .port {
-	background: #f7f7f7;
-	padding: 120px 240px;
+	margin: 120px auto;
 	width: 940px;
 	overflow: hidden; /*don't touch!!! it work!*/
 	text-align: center;
