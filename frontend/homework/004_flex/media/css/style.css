@@ -1,0 +1,49 @@
+.body {
+	display: flex;
+	background-color: #dddddd;
+	text-align: center;
+}
+
+.head, 
+.foo {
+	background-color: #BBBBBB;
+	padding: 100px auto;
+	overflow: hidden;
+	text-align: center;
+}
+
+.cont {
+	display: flex;
+	background-color: #000080;
+	margin: 20px 0;
+	padding: 30px;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.cont div {
+	flex: 1 1 33.33%;
+	text-align: center;
+}
+
+.cont__1 {
+	background-color: #F08080 ;
+}
+
+.cont__2 {
+	background-color: #8A2BE2 ;
+}
+
+.cont__3 {
+	background-color: #A52A2A ;
+}
+
+.cont__4 {
+	background-color: #20B2AA ;
+	flex: 1 1 50vw;
+}
+
+.cont__5 {
+	background-color: #4169E1 ;
+	flex: 1 1 50vw;
+}
