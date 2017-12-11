@@ -22,28 +22,89 @@
 }
 
 .cont div {
-	flex: 1 1 33.33%;
 	text-align: center;
 }
 
 .cont__1 {
+	flex: 1 1 33.33%;
 	background-color: #F08080 ;
+	order: 1;
 }
 
 .cont__2 {
+	flex: 1 1 33.33%;
 	background-color: #8A2BE2 ;
+	order: 2;
 }
 
 .cont__3 {
+	flex: 1 1 33.33%;
 	background-color: #A52A2A ;
+	order: 3;
 }
 
 .cont__4 {
 	background-color: #20B2AA ;
-	flex: 1 1 50vw;
+	flex: 1 1 50%;
+	order: 4;
 }
 
 .cont__5 {
 	background-color: #4169E1 ;
-	flex: 1 1 50vw;
+	flex: 1 1 50%;
+	order: 5;
+}
+
+@media screen and (max-device-width: 1024px) {
+	.cont__1 {
+		flex: 1 1 50%;
+		order: 1;
+	}
+
+	.cont__2 {
+		flex: 1 1 50%;
+		order: 2;
+	}
+
+	.cont__3 {
+		flex: 1 1 50%;
+		order: 3;
+	}
+
+	.cont__5 {
+		flex: 1 1 50%;
+		order: 4;
+	}
+
+	.cont__4 {
+		flex: 1 1 100%;
+		order: 5;
+	}
+}
+
+@media screen and (max-device-width: 768px) {
+	.cont__1 {
+		flex: 1 1 100%;
+		order: 1;
+	}
+
+	.cont__2 {
+		flex: 1 1 100%;
+		order: 2;
+	}
+
+	.cont__3 {
+		flex: 1 1 100%;
+		order: 3;
+	}
+
+	.cont__5 {
+		flex: 1 1 100%;
+		order: 5;
+	}
+
+	.cont__4 {
+		flex: 1 1 100%;
+		order: 4;
+	}
 }
