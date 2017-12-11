@@ -1,0 +1,108 @@
+@font-face {
+    font-family: Belinda; 
+    src: url(./fonts/belinda.otf);
+}
+
+@font-face {
+    font-family: OS_semibold; 
+    src: url(./fonts/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu; 
+    src: url(./fonts/Ubuntu-Bold.ttf);
+}
+
+@font-face {
+	font-family: PT-sans-bold;
+	src: url(./fonts/PT_Sans-Web-Bold.ttf);
+}
+
+@font-face {
+	font-family: PT-sans;
+	src: url(./fonts/PT_Sans-Web-Regular.ttf);
+}
+
+.body {
+	width: 948px;
+	margin: 0 auto;
+}
+
+.head {
+	text-align: center;
+	margin: 0 auto;
+	background-image: url(../img/head.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.head__logo {
+	font: 52px/52px Belinda;
+	color: #ffffff;
+	padding-top: 65px;
+	padding-bottom: 47px;
+	text-align: center;
+}
+
+.head ul {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	justify-content: center;
+}
+
+.head ul li {
+	font: 13px/24px OS_semibold;
+	justify-content: center;
+	margin-right: 50px;
+	list-style: none;
+}
+
+.head ul li a {
+	text-transform: uppercase;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.head h1 {
+	margin: 80px auto 45px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #ffffff;
+	font: 700 53px/53px Ubuntu, sans-serif;
+}
+
+.head h3 {
+	font: 700 15px/15px PT-sans-bold, sans-serif;
+	color: #ffffff;
+	text-transform: uppercase;
+	margin-bottom: 80px;
+}
+
+.head h3 hr {
+	display: inline-block;
+	width: 101px;
+	height: 2px;
+	background-color: #ffffff;
+	opacity: 0.24;
+	vertical-align: sub;
+	margin-right: 45px;
+}
+
+.head h3 hr:last-child {
+	margin-right: 0px;
+	margin-left: 45px;
+}
+
+.getButton {
+	margin-bottom: 120px;
+	background-color: #50c3af;
+	width: 235px;
+	height: 48px;
+	color: #f5f5f5;
+	font:700 15px/24px PT-sans, sans-serif;
+	border-radius: 24px;
+	border: none;
+	text-transform: uppercase;
+}
