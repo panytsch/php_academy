@@ -127,19 +127,22 @@
 	display: flex;
 	justify-content: center;
 	background-color: #eeeeef;
-	width: 948px;
+	padding-bottom: 50px;
+	/*width: 948px;*/
 }
 
 .item1 {
-	position: absolute;
-	top: -54px;
+	/*position: absolute;*/
+	/*top: -54px;*/
+	margin-top: -54px;
 	flex: 0 1 180px;
 	margin-right: 23px;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
-	position: relative;
+	/*position: relative;*/
 	text-align: center;
+	align-items: stretch;
 }
 
 .item1:last-child{
@@ -307,7 +310,7 @@
 	display: flex;
 	justify-content: center;
 	background-color: #f5f5f5;
-	width: 948px;
+	/*width: 948px;*/
 	padding-bottom: 50px;
 }
 
