@@ -33,20 +33,48 @@
 }
 
 .item1 {
-	flex: 0 0 375px;
+	flex-flow: row nowrap;
+	flex: 0 0 140px;
+	margin: 20px 40px;
+	align-items: flex-start;
+	background-position: left top!important;
+	justify-content: flex-start;
+	position: relative;
+}
+
+.item1 div {
+	height: 140px;
 	margin: 0;
- }
+	padding: 0;
+}
 
 .item1__img,
 .item1__img2,
 .item1__img3 {
-	margin-top: 75px;
+	width: 120px;
+	background-position: center top;
+	margin-left: 220px!important;
+	/*order: 1;*/
+	/*margin-top: 20px!important;*/
 }
 
 .h4 {
-	margin: 20px 0 10px;
+	/*order: 2;*/
+	margin-top: 50px!important;
+	margin-left: -120px!important;
+	overflow: hidden;
+	/*text-align: left;*/
+	width: 120px;
 }
 
 .hr hr {
+	width: 2px;
+	height: 140px;
+	margin: 0 20px;
+}
+
+.paragraph {
+	padding-top: 60px!important;
+	box-sizing: border-box;
 }
 }
