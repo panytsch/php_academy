@@ -4,11 +4,15 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script type="text/javascript">
-		var a = +prompt('Enter pls first number:', 'Enter here');
-		var b = +prompt('Enter pls second number:', 'Enter here');
+		var a = +prompt('Enter pls first number:', '5');
+		var b = +prompt('Enter pls second number:', '5');
 		var operation = prompt('Enter operation /, *, + or -', '+');
+		
+		if (isNaN(a) || isNaN(b)){
+			document.write('Something wrong...');
+		}
 
-		if (operation === '+'){
+		else if (operation === '+'){
 			document.write(a + ' + ' + b + ' = ' + +(a+b));
 		}
 
