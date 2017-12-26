@@ -1,7 +1,7 @@
 @media screen and (max-width: 768px) {
 
 .body {
-	width: 768px;
+	width: 700px;
 	margin: 0 auto;
 }	
 
@@ -29,52 +29,39 @@
 
 .cont1 {
 	flex-flow: column nowrap;
-	padding: 25px 0 25px;
+	justify-content: center;
+	
 }
 
 .item1 {
-	flex-flow: row nowrap;
-	flex: 0 0 140px;
-	margin: 20px 40px;
-	align-items: flex-start;
-	background-position: left top!important;
-	justify-content: flex-start;
-	position: relative;
+	margin-right: 0;
 }
 
-.item1 div {
-	height: 140px;
-	margin: 0;
-	padding: 0;
-}
-
-.item1__img,
-.item1__img2,
-.item1__img3 {
-	width: 120px;
-	background-position: center top;
-	margin-left: 220px!important;
-	/*order: 1;*/
-	/*margin-top: 20px!important;*/
-}
-
-.h4 {
-	/*order: 2;*/
-	margin-top: 50px!important;
-	margin-left: -120px!important;
-	overflow: hidden;
-	/*text-align: left;*/
-	width: 120px;
+.item1:nth-child(2) {
+	padding: 70px 0 70px;
 }
 
 .hr hr {
-	width: 2px;
-	height: 140px;
-	margin: 0 20px;
+	width: 50%;
 }
 
-.paragraph {
-	padding-top: 60px!important;
-	box-sizing: border-box;
+.cont2 {
+	flex-flow: column nowrap;
+	justify-content: center;
 }
+
+.item2 {
+	margin-right: 0;
+	justify-content: center;
+	background-position: top center!important;
+	align-items: center;
+}
+
+.item2:nth-child(1){
+	padding-bottom: 70px;
+}
+
+.item2__hr hr {
+	width: 350px;
+}	
 }

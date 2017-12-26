@@ -55,7 +55,7 @@
 	order: 5;
 }
 
-@media screen and (max-device-width: 1024px) {
+@media screen and (max-width: 1024px) {
 	.cont__1 {
 		flex: 1 1 50%;
 		order: 1;
@@ -82,7 +82,7 @@
 	}
 }
 
-@media screen and (max-device-width: 768px) {
+@media screen and (max-width: 768px) {
 	.cont__1 {
 		flex: 1 1 100%;
 		order: 1;
