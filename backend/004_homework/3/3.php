@@ -10,22 +10,17 @@
     }
 
     function delete_words(string $length, string $path, string $name){
-        $file = fopen($path . $name, 'r+');
+        $content = file_get_contents($path . $name);
+        $file = fopen($path . $name, 'w');
         if ($file === false) {
             exit("Не удалось открыть");
         }
-//        while(!feof($file)){
-            $line = fgets($file);
-            $content = explode(' ', $line);
-            rewind($file);
-            foreach ($content as $item){
-                if (mb_strlen($item)<=$length){
-                    fwrite($file, $item . " ");
-                }
+        $array_cont = explode(' ', $content);
+        foreach ($array_cont as $item){
+            if (mb_strlen($item)<=$length){
+                fwrite($file,$item . ' ');
             }
-//            var_dump($content);die();
-
-//        }
+        }
         fclose($file);
     }
 
