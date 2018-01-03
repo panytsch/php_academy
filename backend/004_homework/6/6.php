@@ -62,7 +62,7 @@
     <title>Document</title>
     <style>
         img {
-            padding: 20px;
+            margin: 20px;
         }
     </style>
 </head>
