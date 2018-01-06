@@ -72,6 +72,7 @@ function verify (string $text){
         }
         else read($dir);
     }
+    else read($dir);
     ?>
     <input type="text" name="name" placeholder="Your name"><br><br>
     <textarea type="text" name="message" style="height: 70px;resize: none;" placeholder="Your message"></textarea><br><br>
