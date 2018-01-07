@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 947px) {
 
 .body {
 	width: 700px;
@@ -63,5 +63,20 @@
 
 .item2__hr hr {
 	width: 350px;
-}	
+}
+
+.cont4 {
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+
+.item1_v2 {
+	text-align: center;
+	margin-right: 0;
+}
+
+.item1_v2 .hr hr {
+	width: 50%;
+	margin: 0 auto;
+}
 }
