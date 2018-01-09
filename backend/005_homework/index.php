@@ -89,14 +89,14 @@ function show_doc(string $dir = 'doc/'){
 <body>
 <div class="cont">
     <div class="pic">
-        <p>Downloaded images</p>
+        <p>uploaded images</p>
         <?php
         check();
         show_pic();
         ?>
     </div>
     <div class="doc">
-        <p>Downloaded docs</p>
+        <p>uploaded docs</p>
         <?php
         check();
         show_doc();
