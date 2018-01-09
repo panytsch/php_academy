@@ -105,6 +105,7 @@ function show_doc(string $dir = 'doc/'){
 </div>
 
 <form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
     <input type="file" name="file[]" multiple>
     <br><br>
     <button type="submit" formtarget="_self">Send</button>
