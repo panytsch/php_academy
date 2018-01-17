@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reverce</title>
+</head>
+<body>
+<script src="./script.js"></script>
+<script>
+	var arr = [];
+	var count = parseInt(prompt("Pls, enter count of elements", 24));
+	if (!count){
+		document.write('Your number is wrong, and we have written number 10 :)<br/>');
+		count = 10;
+	}
+	arr = push_random_elements(count,10,20);
+	document.write('Initial array:<br/>' + arr.join(' _ '));
+
+	reverce_array_buff(arr);
+
+	document.write('<br/><hr/>');
+	document.write('Array after reverce with buffer:<br/>' + arr.join(' _ '));
+	
+	reverce_array(arr);
+	
+	document.write('<br/><hr/>');
+	document.write('Array after reverce without buffer:<br/>' + arr.join(' _ '));
+	
+</script>	
+</body>
+</html>
