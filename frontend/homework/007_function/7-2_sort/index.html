@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Function sort for numbers</title>
+</head>
+<body>
+	<script src="./sort.js"></script>
+	<script>
+		var n = parseInt(prompt("enter count of array","10"));
+		if (!n || n<0){
+			n = 10;
+			alert("default count 10");
+		}
+		var arr = push_random_elements(n,1,999);
+		document.write('Initial array: <br />');
+		document.write(arr.join(' | '));
+		document.write('<hr />');
+		var conf = confirm("Sort array max to min?");
+		if (conf) {
+			arr.sort(function(a,b){
+				return b-a;
+			});
+		}
+		else{
+			arr.sort(function(a,b){
+				return a-b;
+			});
+		}
+		document.write('Array after sort: <br />'+arr.join(' | '));
+	</script>
+</body>
+</html>
