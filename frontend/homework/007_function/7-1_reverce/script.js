@@ -33,8 +33,8 @@ function reverce_array(array){
 	}
 	var i = 0;
 	while(count--){
-		array.splice(i,0,parseInt(array.slice(array.length-i-1,array.length-i)));
-		array.splice(array.length-i,0,parseInt(array.slice(i+1,i+2)));
+		array.splice(i,0,array[array.length-i-1]);
+		array.splice(array.length-i,0,array[i+1]);
 		array.splice(array.length-i-2,1);
 		array.splice(i+1,1);
 		i++;
