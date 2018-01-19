@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>People</title>
+</head>
+<body>
+	<script src="my_sort.js"></script>
+	<script>
+		var n = parseInt(prompt("enter count of array","10"));
+		if (!n || n<0){
+			n = 10;
+			alert("default count 10");
+		}
+		var arr = push_random_elements(n,1,1000);
+		var join = ' * '
+		document.write('Initial array: <br />' + arr.join(join) + '<hr />');
+
+		my_sort(arr, false);
+
+		document.write('Array after sort min to max: <br />' + arr.join(join) + '<hr />');
+
+		my_sort(arr, true);
+		document.write('Array after sort max to min: <br />' + arr.join(join) + '<hr />');		
+	</script>
+</body>
+</html>
