@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form_practice</title>
+	<script src="./form_functions.js"></script>
+</head>
+<body>
+	<form action="" name="login_data" method="post">
+		<label for="my_name">Enter your name: </label>
+		<input type="text" id="my_name" name="my_name" placeholder="Your name"><br><br>
+		<label for="password">Your password: </label>
+		<input type="password" id="password" name="password" placeholder="Your password"><br><br>
+		<span>Chose your sex:<br></span>
+		<label for="male">Male:</label>
+		<input type="radio" id="male" value="male" name="sex">
+		<label for="female"> Female:</label>
+		<input type="radio" id="female" name="sex" value="female"><br><br>
+		<button type="button" onclick="valid(login_data) ? this.form.reset():alert('Pls, reenter you data.\nThey\'re not correct');;">Send</button>
+	</form>
+</body>
+</html>
