@@ -3,6 +3,7 @@ function valid(form) {
 	var pass = form.password.value;
 	var sex = form.sex.value;
 	var fail = false;
+	// var text = window.getElementById('text_data');
 	if (!name || name == '' || name == ' ') {
 		fail = true;
 	}
@@ -13,10 +14,12 @@ function valid(form) {
 		fail = true;
 	}
 	if (!fail) {
-		alert('Your data has been delivered');
-		return true;
+		alert('Your data has been sent');
+		form.reset();
+		// text.innerHTML = 'Your data has been delivered';
 	}
 	else{
-		return false;
+		alert('Pls, reenter you data.\nThey\'re not correct');
+		// text.innerHTML = 'Pls, reenter you data.<br/>They\'re not correct';
 	}
 }

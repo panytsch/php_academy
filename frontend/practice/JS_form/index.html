@@ -16,7 +16,9 @@
 		<input type="radio" id="male" value="male" name="sex">
 		<label for="female"> Female:</label>
 		<input type="radio" id="female" name="sex" value="female"><br><br>
-		<button type="button" onclick="valid(login_data) ? this.form.reset():alert('Pls, reenter you data.\nThey\'re not correct');">Send</button>
+		<button type="button" onclick="window.onload = valid(login_data);">Send</button>
+		<!-- <br><br> -->
+		<!-- <span id="text_data" name="text_data">Enter your data pls</span> -->
 	</form>
 </body>
 </html>
