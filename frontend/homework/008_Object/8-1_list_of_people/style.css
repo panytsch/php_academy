@@ -7,10 +7,10 @@
 	flex: 1 0 45%;
 }
 
-table {
+table,tr,td {
 	width: 100%;
 	height: auto;
-	border: 2px solid red;
+	border: 1px solid black;
 }
 
 * {
