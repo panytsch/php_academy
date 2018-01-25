@@ -1,0 +1,28 @@
+.cont {
+	display: flex;
+}
+
+.forma,
+.tabl {
+	flex: 1 0 45%;
+}
+
+table {
+	width: 100%;
+	height: auto;
+	border: 2px solid red;
+}
+
+* {
+	font: 400 16px/20px Arial,sans-serif;
+}
+
+label, 
+input {
+	margin: 10px 0;
+}
+
+p {
+	font-size: 14px;
+	font-style: italic;
+}

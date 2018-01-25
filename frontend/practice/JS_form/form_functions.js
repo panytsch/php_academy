@@ -1,4 +1,4 @@
-window.onload = function() {
+// window.onload = function() {
 	function valid(form) {
 		var name = form.my_name.value;
 		var pass = form.password.value;
@@ -24,4 +24,4 @@ window.onload = function() {
 			text.innerHTML = 'Pls, reenter you data.<br/>They\'re not correct';
 		}
 	}
-}
+// }

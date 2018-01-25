@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>List</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="cont">
+		<div class="forma">
+			<form action="" name="data">
+				<label for="name">Enter your name: </label>
+				<input type="text" id="name" name="name" placeholder="Your name" value="Name"><br>
+				<label for="sname">Enter your surname: </label>
+				<input type="text" name="sname" id="sname" placeholder="Your surname" value="sur"><br>
+				<label for="age">Your age: </label>
+				<input type="number" name="age" id="age" value="24"><br>
+				<p>Choose your sex</p>
+				<label for="male">Male - </label>
+				<input type="radio" id="male" name="sex" value="male">
+				<label for="female">Female - </label>
+				<input type="radio" id="female" name="sex" value="female"><br>
+				<p>Write pls programming languages that you know. Use pls space button like delimiter :)<br>Example: 'PHP JS VB Ruby'</p>
+				<label for="langs">Languages: </label>
+				<input type="text" name="langs" id="langs" placeholder="PHP JS VB Ruby" value="PHP JS VB Ruby"><br>
+				<button name="butt" type="button" onclick="magic(data);">Wtite</button>
+				<button type="button" onclick="show_people('people')">Show People</button>
+			</form>	
+		</div>
+		<div class="tabl">
+			<table id="people" name="people" ></table>
+		</div>
+	</div>
+	<script src="scr.js"></script>
+</body>
+</html>
