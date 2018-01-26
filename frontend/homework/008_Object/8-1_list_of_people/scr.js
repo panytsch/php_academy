@@ -6,14 +6,14 @@ function Human(name, sname, age, sex, langs) {
 	this.age = parseInt(age);
 	this.sex = sex;
 	this.langs = langs.split(' ');
+	this.show = function() {
+		var text = '<tr><td>'+this.name+'</td><td>'+this.sname+
+			'</td><td>'+this.age+'</td><td>'+this.sex+'</td><td>'+
+			this.langs.join(';')+'</td></tr>'
+		return text;
+	};
 }
 
-Human.prototype.show = function() {
-	var text = '<tr><td>'+this.name+'</td><td>'+this.sname+
-		'</td><td>'+this.age+'</td><td>'+this.sex+'</td><td>'+
-		this.langs.join(';')+'</td></tr>'
-	return text;
-};
 
 function magic(form) {
 	if (valid(form)) {
