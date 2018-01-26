@@ -8,12 +8,7 @@ function push_random_elements(count, min_range = 0, max_range = 100){
 }
 
 function reverce_array_buff(array){
-	if (array.length%2) {
-		var count = (array.length - 1)/2;
-	}
-	else {
-		var count = array.length/2;
-	}
+	var count = parseInt(array.length/2);	
 	var i = 0;
 	var buff;
 	while(count--){
@@ -25,12 +20,7 @@ function reverce_array_buff(array){
 }
 
 function reverce_array(array){
-	if (array.length%2) {
-		var count = (array.length - 1)/2;
-	}
-	else {
-		var count = array.length/2;
-	}
+	var count = parseInt(array.length/2);
 	var i = 0;
 	while(count--){
 		array.splice(i,0,array[array.length-i-1]);
