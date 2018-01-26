@@ -23,7 +23,7 @@ function magic(form) {
 		form.reset();
 	}
 	else{
-		alert('kaka');
+		alert('Your data is wrong.\nPls write correct data');
 	}
 }
 
