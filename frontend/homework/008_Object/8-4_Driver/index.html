@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>List</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body onload="show_people('people');">
+	<div class="cont">
+		<div class="forma">
+			<form action="" name="data">
+				<label for="male">Manufact: </label>
+				<input type="text" id="male" name="manufact" placeholder="Nissan"><br>
+				<label for="sname">Color: </label>
+				<input type="text" name="color" id="sname" placeholder="Red"><br>
+				<label for="age">Year: </label>
+				<input type="number" name="year" id="age" placeholder="2005"><br>
+				<label for="name">Model: </label>
+				<input type="text" id="name" name="name" placeholder="Corolla"><br>
+				<label for="dname">Driver name: </label><br>
+				<input type="text" id="dname" name="dname" placeholder="Driver name"><br>
+				<label for="exp">Experience (years): </label>
+				<br>
+				<input type="number" id="exp" name="exp" placeholder="experience"><br>
+				<button name="butt" type="button" onclick="magic(data);">Wtite</button>
+				<button type="button" onclick="show_people('people')">Show Autos</button>
+				<br><button type="button" onclick="getColor()">Get Color</button>
+				<button type="button" onclick="getInfo()">Get Info</button><br>
+				<button type="button" onclick="getDriverInfo();">Driver Info</button>
+			</form>	
+		</div>
+		<div class="tabl">
+			<table id="people" name="people">
+				<tr class="train"><td>Id</td><td>Manufact</td><td>Model</td><td>Year</td><td>Color</td></tr>
+			</table>
+		</div>
+	</div>
+	<script src="scr.js"></script>
+</body>
+</html>

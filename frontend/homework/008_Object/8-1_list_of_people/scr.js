@@ -43,6 +43,6 @@ function valid(form) {
 	var sex = form.sex.value;
 	var lang = form.langs.value;
 	var flag = false;
-	!name ? flag = false : !sname ? flag = false : !age ? flag = false: isNaN(age) ? flag = false : !isFinite ? flag = false : !lang ? flag = false : !sex ? flag = false : flag = true;
+	!name ? flag = false : !sname ? flag = false : !age ? flag = false: isNaN(age) ? flag = false : !isFinite(age) ? flag = false : !lang ? flag = false : !sex ? flag = false : flag = true;
 	return flag;
 }
