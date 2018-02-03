@@ -33,20 +33,17 @@ function Driver(name, experience){
 
 function getColor() {
 	var id = parseInt(prompt('Write id auto'));
-	list[id-1] ? alert('Color - ' + list[id-1].whatColor()) : 
-	alert('Wrong ID');
+	alert(list[id-1] ? 'Color - ' + list[id-1].whatColor() : 'Wrong ID');
 }
 
 function getInfo(id) {
 	var id = parseInt(prompt('Write id auto'));
-	list[id-1] ? alert(list[id-1].autoInfo()) : 
-	alert('Wrong ID');
+	alert(list[id-1] ? list[id-1].autoInfo() : 'Wrong ID');
 }
 
 function getDriverInfo(id) {
 	var id = parseInt(prompt('Write id auto'));
-	list[id-1] ? alert(list[id-1].driverInfo()) : 
-	alert('Wrong ID');
+	alert(list[id-1] ? list[id-1].driverInfo() : 'Wrong ID');
 }
 
 Automobile.prototype.whatColor = function() {

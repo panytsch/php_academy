@@ -16,9 +16,11 @@
 <div style="margin: 50px 0 0 20px; font: 400 16px/20px Arial, sans-serif; color: green">
     your words: <br>
     <?php
-    $a = $_POST["first"];
-    $b = $_POST["second"];
-    getCommonWords($a, $b);
+    if ($_POST && $_POST["first"] && $_POST["first"]){
+        $a = $_POST["first"];
+        $b = $_POST["second"];
+        getCommonWords($a, $b);
+    }
     ?>
 </div>
 </body>

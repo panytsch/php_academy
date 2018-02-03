@@ -34,6 +34,10 @@
         <textarea style="color: black; resize: none" name="area" cols="60" rows="15" placeholder="Write your text here. Please, write only letters and spaces"></textarea>
         <button type="submit">send</button>
     </form>
-    <?php run();?>
+    <?php
+    if ($_POST && $_POST["area"]){
+        run();
+    }
+    ?>
 </body>
 </html>

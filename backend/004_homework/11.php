@@ -1,6 +1,6 @@
 <?php
 mb_internal_encoding("UTF-8");
-function mb_ucfirst($text) {
+function mb_ucfirst($text) :string {
     if (mb_substr($text, 0, 1) == " "){
         return ' ' . mb_strtoupper(mb_substr($text, 1, 1)) . mb_substr($text, 2);
     }
@@ -21,12 +21,6 @@ function transform_text (string $text) :string {
     return $text;
 }
 ?>
-/**
- * Created by PhpStorm.
- * User: panytsch
- * Date: 07.01.18
- * Time: 15:10
- */
 
 <!doctype html>
 <html lang="en">
@@ -44,7 +38,6 @@ function transform_text (string $text) :string {
     <p><?php
         if ($_POST && $_POST['text']){
             echo transform_text($_POST['text']);
-//            echo mb_ucfirst($_POST['text']);
         }
         ?>
     </p>

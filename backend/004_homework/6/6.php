@@ -71,7 +71,9 @@
     <input type="file" name="picture[]" multiple accept=".jpg, .jpeg, .png, .gif"><br><br>
     <button type="submit">Do it!</button>
     <img src="" alt="">
-    <?php start(); ?>
+    <?php
+    var_dump($_FILES);die();
+    start(); ?>
 </form>
 </body>
 </html>
