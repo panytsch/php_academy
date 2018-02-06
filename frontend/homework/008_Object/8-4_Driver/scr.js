@@ -10,11 +10,6 @@ function Automobile(manufact, model, year, color) {
 	this.model = model;
 	this.year = parseInt(year);
 	this.color = color;
-	this.show = function() {
-		var text = '<tr><td>'+this.id+'</td><td>'+this.manufact+'</td><td>'+this.model+
-			'</td><td>'+this.year+'</td><td>'+this.color+'</td></tr>';
-		return text;
-	};
 }
 
 function Driver(name, experience){
@@ -23,11 +18,17 @@ function Driver(name, experience){
 	this.driverInfo = function () {
 		return this.name + ' has ' + this.experience + ' years experience';
 	}
-	this.show = function() {
-		var text = '<tr><td>'+this.id+'</td><td>'+this.name+
-		'</td><td>'+this.experience+'</td><td>'+this.manufact+'</td><td>'+this.model+
-			'</td><td>'+this.year+'</td><td>'+this.color+'</td></tr>';
-		return text;
+	this.show = function(id) {
+		var table = document.getElementById(id);
+		var tr = document.createElement('tr');
+		var arr = ['id', 'name', 'experience', 'manufact', 'model', 'year', 'color'];
+		for (var i = 0; i < arr.length; i++){
+			var td = document.createElement('td');
+			td.innerHTML = this[arr[i]];
+			console.log(this[arr[i]]);
+			tr.appendChild(td); 
+		}
+		table.appendChild(tr);
 	};
 }
 
@@ -70,12 +71,11 @@ function magic(form) {
 }
 
 function show_people(id) {
-	var a = document.getElementById(id);
-	var str = '<tr class="train"><td>Id</td><td>Driver name</td><td>Experience</td><td>Manufact</td><td>Model</td><td>Year</td><td>Color</td></tr>';
+	var table = document.getElementById(id);
+	table.innerHTML = '<tr class="train"><td>Id</td><td>Driver name</td><td>Experience</td><td>Manufact</td><td>Model</td><td>Year</td><td>Color</td></tr>';
 	for (var i = 0; i < list.length; i++) {
-		str += list[i].show();
+		list[i].show(id);
 	}
-	a.innerHTML = str;
 }
 
 function valid(form) {
