@@ -22,11 +22,12 @@ function Driver(name, experience){
 		var table = document.getElementById(id);
 		var tr = document.createElement('tr');
 		var arr = ['id', 'name', 'experience', 'manufact', 'model', 'year', 'color'];
-		for (var i = 0; i < arr.length; i++){
-			var td = document.createElement('td');
-			td.innerHTML = this[arr[i]];
-			console.log(this[arr[i]]);
-			tr.appendChild(td); 
+		for (item in this){
+			if (typeof(this[item]) != 'function') {
+				var td = document.createElement('td');
+				td.innerHTML = this[item];
+			tr.appendChild(td);	
+			}
 		}
 		table.appendChild(tr);
 	};
@@ -72,7 +73,7 @@ function magic(form) {
 
 function show_people(id) {
 	var table = document.getElementById(id);
-	table.innerHTML = '<tr class="train"><td>Id</td><td>Driver name</td><td>Experience</td><td>Manufact</td><td>Model</td><td>Year</td><td>Color</td></tr>';
+	table.innerHTML = '<tr class="train"><td>Driver name</td><td>Experience</td><td>Id</td><td>Manufact</td><td>Model</td><td>Year</td><td>Color</td></tr>';
 	for (var i = 0; i < list.length; i++) {
 		list[i].show(id);
 	}
