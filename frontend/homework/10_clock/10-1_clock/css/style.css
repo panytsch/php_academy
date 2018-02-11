@@ -1,0 +1,24 @@
+.clock {
+	display: inline-block;
+	background-image: url(../img/ciferblat.png);
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 476px;
+	width: 476px;
+	position: relative;
+}
+
+.sec {
+	position: absolute;
+	display: inline-block;
+	background-image: url(../img/arrow_sec.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	height: 395px;
+	width: 30px;
+	top: 40px;
+	left: 223px;
+	/*background-size: contain;*/
+	transform: rotate(0deg);
+}
