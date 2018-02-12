@@ -19,6 +19,23 @@
 	width: 30px;
 	top: 40px;
 	left: 223px;
-	/*background-size: contain;*/
 	transform: rotate(0deg);
+}
+
+.min {
+	position: absolute;
+	display: inline-block;
+	background-image: url(../img/arrow_min.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	height: 308px;
+	width: 37px;
+	top: 83px; 
+	left: 219px;
+	transform: rotate(0deg);
+}
+
+.cont {
+	display: flex;
+	justify-content: space-around;
 }
