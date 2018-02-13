@@ -16,6 +16,16 @@ function start (id){
 	interval = setInterval(counter.start.bind(counter),100);
 }
 
+function lap() {
+	var timer_span = document.getElementById('span');
+	var timer_div = document.getElementById('timer');
+	var new_span = document.createElement('span');
+	var new_br = document.createElement('br');
+	new_span.innerText = timer_span.innerText;
+	timer_div.insertBefore(new_span,timer_span);
+	timer_div.insertBefore(new_br,timer_span);
+}
+
 function Counter() {
 	this.milisec = 0;
 	this.secs = 0;
@@ -62,7 +72,23 @@ function Counter() {
 		this.hour = 0;
 		this.count = 0;
 		document.getElementById('sec').style.transform = 'rotate(0deg)';	
-		document.getElementById('min').style.transform = 'rotate(0deg)';	
+		document.getElementById('min').style.transform = 'rotate(0deg)';
 	}
 }
 
+function clear_f() {
+	var list = document.getElementsByTagName('span');
+	var list_br = document.getElementsByTagName('br');
+	// console.log(list[list.length-1].innerText);
+	if (list.length <= 1 ) {
+		counter.clear();
+		return;
+	}
+	var i = list.length;
+	while(i > 1){
+		list[0].remove(); //list1[1].remove();
+		list_br[1].remove();
+		--i;
+	}
+	counter.clear();
+}

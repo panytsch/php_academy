@@ -39,3 +39,10 @@
 	display: flex;
 	justify-content: space-around;
 }
+
+button {
+	background-color: #ECDDDA;
+	border-radius: 5px;
+	width: 100px;
+	height: 20px;
+}
