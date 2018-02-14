@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Работа с узлами DOM</title>
+</head>
+<body>
+    <ul id="list"><li>List Item 1</li><li>List Item 2</li><li>List Item 3</li><li>List Item 4</li><li>List Item 5</li></ul>
+    <br />
+
+    <input
+        type="button"
+        onclick="selectFirstChild()"
+        style="width: 210px;"
+        value="Выбрать первый элемент"
+    />
+    <br />
+
+    <input type="button" onclick="selectLastChild()" style="width: 210px;" value="Выбрать последний элемент" /><br />
+    <input type="button" onclick="selectNextNode()" style="width: 210px;" value="Выбрать следующий элемент" /><br />
+    <input type="button" onclick="selectPrevNode()" style="width: 210px;" value="Выбрать предыдущий элемент" /><br />
+    <input type="button" onclick="createNewChild()" style="width: 210px;" value="Добавить элемент" /><br />
+    <input type="button" onclick="removeLastChild()" style="width: 210px;" value="Удалить элемент" /><br />
+    <input type="button" onclick="createNewChildAtStart()" style="width: 210px;" value="Добавить  в начало" /><br />
+    <p>
+        Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Laboriosam possimus
+        ipsum sapiente architecto vel asperiores
+        sint autem eligendi qui
+         <span>
+         </span>
+         recusandae veniam consectetur maiores, modi officiis, debitis laborum quasi necessitatibus rem.
+    </p>
+    <script src="./js.js"></script>
+</body>
+</html>
+
