@@ -1,6 +1,8 @@
 var inp = document.getElementById('input');
 var btn = document.getElementById('btnFind');
 var div = document.getElementById('container');
+var span = document.createElement('span');
+span.setAttribute('class', 'findedSpan');
 btn.onclick = function() {
     mainfunc(inp.value);
 }
@@ -10,6 +12,10 @@ inp.onkeyup = function() {
 
 function mainfunc(msg) {
     deleteAllSpans();
+    if (/\S/.test(msg)) {
+        span.innerText = msg;
+        div.innerHTML = div.innerText.split(msg).join(span.outerHTML);
+    }
 }
 
 function deleteAllSpans() {
