@@ -1,16 +1,21 @@
 var inp = document.getElementById('input');
-var but = document.getElementById('pressButton');
-
-
-inp.onchange = function(){
-	changeInner();
+var btn = document.getElementById('btnFind');
+var div = document.getElementById('container');
+btn.onclick = function() {
+    mainfunc(inp.value);
+}
+inp.onkeyup = function() {
+    mainfunc(this.value);
 }
 
-
-but.onclick = function(){
-	changeInner();
+function mainfunc(msg) {
+    deleteAllSpans();
 }
 
-function changeInner() {
-	alert(inp.value);
+function deleteAllSpans() {
+    var a = document.getElementsByClassName('findedSpan');
+    for (var i = a.length - 1; i >= 0; i--) {
+        a[i].parentNode.insertBefore(document.createTextNode(a[i].innerText), a[i]);
+        a[i].parentNode.removeChild(a[i]);
+    }
 }
