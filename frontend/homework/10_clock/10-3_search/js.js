@@ -3,6 +3,7 @@ var btn = document.getElementById('btnFind');
 var div = document.getElementById('container');
 var span = document.createElement('span');
 span.setAttribute('class', 'findedSpan');
+
 btn.onclick = function() {
     mainfunc(inp.value);
 }
@@ -14,7 +15,8 @@ function mainfunc(msg) {
     deleteAllSpans();
     if (/\S/.test(msg)) {
         span.innerText = msg;
-        div.innerHTML = div.innerText.split(msg).join(span.outerHTML);
+        div.innerHTML = recursionNodesSearch(div, msg);
+        alert('alarm');
     }
 }
 
@@ -24,4 +26,21 @@ function deleteAllSpans() {
         a[i].parentNode.insertBefore(document.createTextNode(a[i].innerText), a[i]);
         a[i].parentNode.removeChild(a[i]);
     }
+}
+
+function recursionNodesSearch(noda, msg) {
+    console.log(msg);
+    var result = '';
+    for (var i = 0; i < noda.childNodes.length; i++) {
+        if (noda.childNodes[i].nodeType === 1) {
+            var newTag = document.createElement(noda.childNodes[i].tagName);
+            newTag.innerHTML = recursionNodesSearch(noda.childNodes[i], msg);
+            result += newTag.outerHTML;
+        } else if (noda.childNodes[i].nodeType === 3) {
+            result += noda.childNodes[i].textContent.split(msg).join(span.outerHTML);
+        } else {
+            alert('alarm');
+        }
+    }
+    return result;
 }
