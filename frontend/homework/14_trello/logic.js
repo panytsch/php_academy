@@ -5,6 +5,11 @@ let saveStorage = function() {
 }
 let dragenterFun = function(e) {
     this.style.border = '3px solid red';
+    let newElem = document.createElement('div');
+    newElem.setAttribute('class', 'content');
+    newElem.style.border = '';
+    newElem.style.backgroundColor = '#7770FF';
+    this.parentNode.insertBefore(newElem, this);
 }
 let dragleaveFun = function(e) {
     this.style.border = '';
