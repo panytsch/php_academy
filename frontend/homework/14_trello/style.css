@@ -24,3 +24,7 @@ section * {
     border: 1px solid black;
     min-height: 30px;
 }
+
+#newElement {
+    background-color: #B7B8FFFF;
+}
