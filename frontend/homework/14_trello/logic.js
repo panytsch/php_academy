@@ -1,3 +1,10 @@
+let require = function(url) {
+    let script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+require('./fabric.js');
+a('hi');
 let storage;
 let mainContent = document.getElementsByTagName('main')[0];
 let saveStorage = function() {
@@ -17,10 +24,11 @@ let dragleaveFun = function(e) {
 };
 let dragStartFun = function(e) {
     this.id = 'newid';
-    // this.style.transform = 'rotate(5deg)'
     e.dataTransfer.effectAllowed = "move";
     this.style.border = "3px dotted #000000";
-    // console.log(e)
+    // this.style.transform = 'rotate(5deg)';
+    e.toElement.style.transform = 'rotate(5deg)';
+    console.log(e);
     e.dataTransfer.setData("Text", this.id);
 };
 let dragendFun = function(e) {
