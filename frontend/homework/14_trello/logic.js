@@ -1,44 +1,30 @@
-let require = function(url) {
-    let script = document.createElement('script');
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
-}
-require('./fabric.js');
-a('hi');
-let storage;
-let mainContent = document.getElementsByTagName('main')[0];
-let saveStorage = function() {
-    window.localStorage.mainContent = mainContent.innerHTML;
-}
-let dragenterFun = function(e) {
+function Fabric() {}
+Fabric.prototype.render = function(type) {
+    // let 
+    // document.getElementsByTagName('section')[0].insertBefore(, child: Node)
+};
+Fabric.prototype.dragenterFun = function(type) {
     this.style.border = '3px solid red';
-    // let newElem = document.createElement('div');
-    // newElem.setAttribute('class', 'content');
-    // newElem.setAttribute('id', 'newElement');
-    // newElem.style.border = '';
-    // this.parentNode.insertBefore(newElem, this);
-};
-let dragleaveFun = function(e) {
+}
+Fabric.prototype.dragleaveFun = function(type) {
     this.style.border = '';
-    // this.previousSibling.remove();
-};
-let dragStartFun = function(e) {
+}
+Fabric.prototype.dragStartFun = function(type) {
     this.id = 'newid';
     e.dataTransfer.effectAllowed = "move";
     this.style.border = "3px dotted #000000";
-    // this.style.transform = 'rotate(5deg)';
     e.toElement.style.transform = 'rotate(5deg)';
     console.log(e);
     e.dataTransfer.setData("Text", this.id);
-};
-let dragendFun = function(e) {
+}
+Fabric.prototype.dragendFun = function(type) {
     this.style.border = "";
 }
-let dragoverFun = function(e) {
+Fabric.prototype.dragoverFun = function(type) {
     e.preventDefault();
     return false;
 }
-let dropFun = function(e) {
+Fabric.prototype.dropFun = function(type) {
     this.style.border = '1px solid black'
     e.preventDefault();
     e.stopPropagation();
@@ -48,19 +34,24 @@ let dropFun = function(e) {
     elem.id = '';
     return false;
 }
-if (window.localStorage.mainContent) {
-    storage = window.localStorage.mainContent;
-} else {
-    storage = mainContent.innerHTML;
+Fabric.create = function(type, text) {
+    var ctor = type,
+        newFabric;
+    if (typeof Fabric[ctor] !== 'function') {
+        console.log('Not fount');
+    }
+    if (typeof Fabric[ctor].prototype.render !== 'function') {
+        Fabric[ctor].prototype = new Fabric();
+    }
+    newFabric = new Fabric[ctor](text);
+    console.log(newFabric)
+    return newFabric;
 }
-mainContent.innerHTML = storage;
-let sections = document.getElementsByTagName('section');
-let contents = document.getElementsByClassName('content');
-for (let i = 0; contents.length > i; i++) {
-    contents[i].addEventListener('dragenter', dragenterFun, false);
-    contents[i].addEventListener('dragleave', dragleaveFun, false);
-    contents[i].addEventListener('dragstart', dragStartFun, false);
-    contents[i].addEventListener('dragend', dragendFun, false);
-    contents[i].addEventListener('dragover', dragoverFun, false);
-    contents[i].addEventListener('drop', dropFun, false);
+Fabric.content = function(text) {
+    let diva = document.createElement('div');
+    diva.setAttribute('class', 'content');
+    diva.innerHTML = text;
+    this.code = diva;
 }
+let blockcont = Fabric.create('content', 'gavno');
+blockcont.render();
