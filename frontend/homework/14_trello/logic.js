@@ -6,9 +6,7 @@ let saveAll = function() {
     function recurs(noda) {
         let res = [];
         for (let i = 0; i < noda.childNodes.length; i++) {
-            // console.log(i, noda.childNodes[i], noda.childNodes[i].nodeType)
             if (noda.childNodes[i].nodeType === 1) {
-                // console.log(noda.childNodes[i]);
                 if (noda.childNodes[i].className === 'content') {
                     res.push({ "name": "content", "code": noda.childNodes[i].innerHTML });
                     continue;
@@ -23,15 +21,12 @@ let saveAll = function() {
         return res;
     }
     result = recurs(main);
-    console.log(JSON.stringify(result));
-    // console.log(main.childNodes);
+    // window.localStorage.mainContent = recurs(main);
 }
 
 function Fabric() {}
-Fabric.prototype.render = function() {
-    let temp = document.getElementsByTagName('section')[0];
-    // let inp = document.getElementsByTagName('input')[0];
-    temp.appendChild(this.code);
+Fabric.prototype.render = function(noda) {
+    noda.appendChild(this.code);
 };
 Fabric.prototype.dragenterFun = function(e) {
     this.style.border = '3px solid red';
@@ -45,6 +40,7 @@ Fabric.prototype.dragStartFun = function(e) {
     this.style.border = "3px dotted #000000";
     // e.toElement.style.transform = 'rotate(5deg)';
     e.dataTransfer.setData("Text", this.id);
+    e.stopPropagation();
 }
 Fabric.prototype.dragendFun = function(e) {
     this.style.border = "";
@@ -59,9 +55,13 @@ Fabric.prototype.dropFun = function(e) {
     e.stopPropagation();
     let id = e.dataTransfer.getData('Text');
     let elem = document.getElementById(id);
-    this.parentNode.insertBefore(elem, this);
+    // console.log(this.tagName === 'section');
+    console.log(this.lastChild);
+    this.tagName !== 'SECTION' ?
+        this.parentNode.insertBefore(elem, this) :
+        this.insertBefore(elem, this.lastChild);
     elem.id = '';
-    saveAll();
+    e.stopPropagation();
     return false;
 }
 Fabric.create = function(type, text) {
@@ -96,16 +96,20 @@ Fabric.input = function() {
     diva.setAttribute('type', 'text');
     this.code = diva;
 }
-// let blockcont = Fabric.create('content', 'gavno');
-// blockcont.render();
-// let input = Fabric.create('input');
-// input.render();
+Fabric.section = function() {
+    let diva = document.createElement('section');
+    diva.setAttribute('draggable', 'true');
+    this.code = diva;
+}
 let mainData = window.localStorage.mainContent;
 let mainarray = JSON.parse(mainData);
-// console.log(mainarray[0]);
-mainarray[0].map(x => {
-    let tempor = Fabric.create(x.name, x.code);
-    tempor.render();
+mainarray.map(y => {
+    let secta = Fabric.create('section');
+    secta.render(main);
+    for (let i = 0; i < y.length; i++) {
+        let tempor = Fabric.create(y[i].name, y[i].code);
+        tempor.render(secta.code);
+    }
 });
 saveAll();
 // window.localStorage.mainContent = [[{"name":"content","code":"here"},{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[{"name":"content","code":"next level"},{"name":"content","code":"of coding"},{"name":"input","code":""}]]
