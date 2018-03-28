@@ -29,7 +29,6 @@ let saveAll = function() {
         return res;
     }
     result = recurs(main);
-    // console.log(result);
     window.localStorage.mainContent = JSON.stringify(result);
 }
 
@@ -60,16 +59,19 @@ Fabric.prototype.dragoverFun = function(e) {
 }
 Fabric.prototype.dropFun = function(e) {
     this.style.border = '1px solid black';
-    e.preventDefault();
-    e.stopPropagation();
     let id = e.dataTransfer.getData('Text');
     let elem = document.getElementById(id);
-    // console.log(this.tagName === 'section');
-    console.log(this.lastChild);
-    this.tagName !== 'SECTION' ?
-        this.parentNode.insertBefore(elem, this) :
+    if (this.tagName !== 'SECTION' && elem.tagName !== 'SECTION') {
+        this.parentNode.insertBefore(elem, this);
+    } else if (elem.tagName !== 'SECTION') {
         this.insertBefore(elem, this.lastChild);
+    } else if (elem.tagName === 'SECTION' && (this.tagName === 'DIV' || this.tagName === 'input')) {
+        this.parentNode.parentNode.insertBefore(elem, this.parentNode);
+    } else {
+        this.parentNode.insertBefore(elem, this);
+    }
     elem.id = '';
+    e.preventDefault();
     e.stopPropagation();
     return false;
 }
@@ -77,18 +79,20 @@ Fabric.create = function(type, text) {
     var ctor = type,
         newFabric;
     if (typeof Fabric[ctor] !== 'function') {
-        console.log('Not fount');
+        console.log('Not found');
     }
     if (typeof Fabric[ctor].prototype.render !== 'function') {
         Fabric[ctor].prototype = new Fabric();
     }
     newFabric = new Fabric[ctor](text);
-    newFabric.code.addEventListener('dragenter', newFabric.dragenterFun, false);
-    newFabric.code.addEventListener('dragleave', newFabric.dragleaveFun, false);
-    newFabric.code.addEventListener('dragstart', newFabric.dragStartFun, false);
-    newFabric.code.addEventListener('dragend', newFabric.dragendFun, false);
-    newFabric.code.addEventListener('dragover', newFabric.dragoverFun, false);
-    newFabric.code.addEventListener('drop', newFabric.dropFun, false);
+    if (newFabric.code.tagName === 'SECTION' || newFabric.code.className === 'content') {
+        newFabric.code.addEventListener('dragenter', newFabric.dragenterFun, false);
+        newFabric.code.addEventListener('dragleave', newFabric.dragleaveFun, false);
+        newFabric.code.addEventListener('dragstart', newFabric.dragStartFun, false);
+        newFabric.code.addEventListener('dragend', newFabric.dragendFun, false);
+        newFabric.code.addEventListener('dragover', newFabric.dragoverFun, false);
+        newFabric.code.addEventListener('drop', newFabric.dropFun, false);
+    }
     return newFabric;
 }
 Fabric.content = function(text) {
@@ -115,7 +119,6 @@ let mainarray = JSON.parse(mainData);
 mainarray.map(y => {
     let secta = Fabric.create('section');
     secta.render(main);
-    console.log(secta);
     for (let i = 0; i < y.length; i++) {
         let tempor = Fabric.create(y[i].name, y[i].code);
         tempor.render(secta.code);
