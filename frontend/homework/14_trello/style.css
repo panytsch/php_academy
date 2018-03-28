@@ -1,6 +1,7 @@
 main {
     display: flex;
     background-color: #B8E14F;
+    flex-flow: row wrap;
 }
 
 section {

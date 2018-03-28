@@ -1,5 +1,13 @@
 let main = document.getElementsByTagName('main')[0];
-let laga;
+let btn = document.getElementById('button');
+let addSection = function() {
+    let secta = Fabric.create('section');
+    secta.render(main);
+    let input = Fabric.create('input');
+    input.render(secta.code);
+    // saveAll();
+}
+btn.onclick = addSection;
 let saveAll = function() {
     let result = [];
 
@@ -21,7 +29,8 @@ let saveAll = function() {
         return res;
     }
     result = recurs(main);
-    // window.localStorage.mainContent = recurs(main);
+    // console.log(result);
+    window.localStorage.mainContent = JSON.stringify(result);
 }
 
 function Fabric() {}
@@ -106,10 +115,11 @@ let mainarray = JSON.parse(mainData);
 mainarray.map(y => {
     let secta = Fabric.create('section');
     secta.render(main);
+    console.log(secta);
     for (let i = 0; i < y.length; i++) {
         let tempor = Fabric.create(y[i].name, y[i].code);
         tempor.render(secta.code);
     }
 });
-saveAll();
-// window.localStorage.mainContent = [[{"name":"content","code":"here"},{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[{"name":"content","code":"next level"},{"name":"content","code":"of coding"},{"name":"input","code":""}]]
+// saveAll();
+// window.localStorage.mainContent = [[{"name":"content","code":"here"},{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[{"name":"content","code":"next level"},{"name":"content","code":"of coding"},{"name":"input","code":""}],[{"name":"input","code":""}]]
