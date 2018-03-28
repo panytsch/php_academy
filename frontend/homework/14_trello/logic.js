@@ -43,6 +43,8 @@ Fabric.prototype.dragleaveFun = function(e) {
     this.style.border = '';
 }
 Fabric.prototype.dragStartFun = function(e) {
+    // let temp = this.cloneNode(true);
+    // console.log(temp);
     this.id = 'newid';
     e.dataTransfer.effectAllowed = "move";
     this.style.border = "3px dotted #000000";
