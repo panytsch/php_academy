@@ -1,5 +1,20 @@
 let main = document.getElementsByTagName('main')[0];
+let header = document.getElementsByTagName('header')[0];
 let btn = document.getElementById('button');
+let btndef = document.createElement('button');
+btndef.innerText = 'set default';
+btndef.onclick = function() {
+    window.localStorage.mainContent = '[[["kakaka",[]],{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[["sadasdas",[]],{"name":"content","code":"of coding"},{"name":"input","code":""}],[["gavno",[]],{"name":"input","code":""}],[["new",[]],{"name":"input","code":""}]]';
+    location.reload();
+}
+header.appendChild(btndef);
+let btnsave = document.createElement('button');
+btnsave.innerText = 'save';
+btnsave.type = 'button';
+btnsave.onclick = function() {
+    saveAll();
+}
+header.appendChild(btnsave);
 let addSection = function() {
     let secta = Fabric.create('section');
     secta.render(main);
@@ -15,6 +30,10 @@ let saveAll = function() {
         let res = [];
         for (let i = 0; i < noda.childNodes.length; i++) {
             if (noda.childNodes[i].nodeType === 1) {
+                if (noda.childNodes[i].className === 'blockHeader') {
+                    res.push(noda.childNodes[i].value);
+                    continue;
+                }
                 if (noda.childNodes[i].className === 'content') {
                     res.push({ "name": "content", "code": noda.childNodes[i].innerHTML });
                     continue;
@@ -78,7 +97,7 @@ Fabric.prototype.dropFun = function(e) {
     return false;
 }
 Fabric.create = function(type, text) {
-    var ctor = type,
+    let ctor = type,
         newFabric;
     if (typeof Fabric[ctor] !== 'function') {
         console.log('Not found');
@@ -111,20 +130,52 @@ Fabric.input = function() {
     diva.setAttribute('type', 'text');
     this.code = diva;
 }
-Fabric.section = function() {
+Fabric.button = function(text = 'button') {
+    let btne = document.createElement('button');
+    btne.type = text;
+    btne.innerText = 'OK';
+    btne.style.width = '0';
+    btne.style.display = 'none';
+    btne.onclick = function(e) {
+
+    }
+    this.code = btne;
+}
+
+Fabric.section = function(text) {
     let diva = document.createElement('section');
     diva.setAttribute('draggable', 'true');
     this.code = diva;
+    let cont = document.createElement('div');
+    let divInner = document.createElement('input');
+    divInner.setAttribute('draggable', 'false');
+    divInner.placeholder = '{Block name..}';
+    divInner.value = text;
+    divInner.className = 'blockHeader';
+    cont.appendChild(divInner);
+    let baton = Fabric.create('button');
+    baton.render(cont);
+    divInner.onfocus = function(e) {
+        this.style.width = '70%';
+        this.nextSibling.style.width = '20%';
+        this.nextSibling.style.display = 'inline-block';
+    }
+    divInner.onblur = function(e) {
+        this.style.width = '100%';
+        this.nextSibling.style.width = '0';
+        this.nextSibling.style.display = 'none';
+    }
+    this.code.appendChild(cont);
 }
 let mainData = window.localStorage.mainContent;
 let mainarray = JSON.parse(mainData);
 mainarray.map(y => {
-    let secta = Fabric.create('section');
+    let secta = Fabric.create('section', y[0][0]);
     secta.render(main);
-    for (let i = 0; i < y.length; i++) {
+    for (let i = 1; i < y.length; i++) {
         let tempor = Fabric.create(y[i].name, y[i].code);
         tempor.render(secta.code);
     }
 });
 // saveAll();
-// window.localStorage.mainContent = [[{"name":"content","code":"here"},{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[{"name":"content","code":"next level"},{"name":"content","code":"of coding"},{"name":"input","code":""}],[{"name":"input","code":""}]]
+// window.localStorage.mainContent = '[[{"name":"content","code":"here"},{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[{"name":"content","code":"next level"},{"name":"content","code":"of coding"},{"name":"input","code":""}],[{"name":"input","code":""}]]'

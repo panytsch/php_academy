@@ -2,6 +2,7 @@ main {
     display: flex;
     background-color: #B8E14F;
     flex-flow: row wrap;
+    align-items: flex-start;
 }
 
 section {
@@ -28,4 +29,9 @@ section * {
 
 #newElement {
     background-color: #B7B8FFFF;
+}
+
+.blockHeader {
+    background-color: inherit;
+    border: 0;
 }
