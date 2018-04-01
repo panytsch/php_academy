@@ -62,8 +62,8 @@ Fabric.prototype.dragleaveFun = function(e) {
     // this.style.border = '';
 }
 Fabric.prototype.dragStartFun = function(e) {
-    // let temp = this.cloneNode(true);
-    // console.log(temp);
+    let temp = this.cloneNode(true);
+    console.log(temp);
     this.id = 'newid';
     e.dataTransfer.effectAllowed = "move";
     // this.style.border = "3px dotted #000000";
@@ -127,6 +127,7 @@ Fabric.content = function(text) {
         }
         let newdiva = document.createElement('div');
         newdiva.className = 'inner';
+        newdiva.setAttribute('title', 'delete block');
         newdiva.innerText = 'X';
         newdiva.onclick = function(e) {
             this.parentNode.parentNode.removeChild(this.parentNode);
@@ -215,5 +216,3 @@ mainarray.map(y => {
         tempor.render(secta.code);
     }
 });
-// saveAll();
-// window.localStorage.mainContent = '[[{"name":"content","code":"here"},{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[{"name":"content","code":"next level"},{"name":"content","code":"of coding"},{"name":"input","code":""}],[{"name":"input","code":""}]]'

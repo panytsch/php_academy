@@ -1,6 +1,9 @@
+body {
+    background-color: #B8E14F;
+}
+
 main {
     display: flex;
-    background-color: #B8E14F;
     flex-flow: row wrap;
     align-items: flex-start;
 }
@@ -61,11 +64,17 @@ section * {
 
 .input {
     border: 0;
+    background-color: #e2e4e6;
 }
 
 .input:hover {
     background-color: #C3E1D4;
     cursor: pointer;
+}
+
+.input:focus {
+    background-color: #ffffff;
+    outline: none;
 }
 
 .blockHeader:hover {
