@@ -2,27 +2,6 @@ let main = document.getElementsByTagName('main')[0];
 let header = document.getElementsByTagName('header')[0];
 let btn = document.getElementById('button');
 let btndef = document.createElement('button');
-btndef.innerText = 'set default';
-btndef.onclick = function() {
-    window.localStorage.mainContent = '[[["kakaka",[]],{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[["sadasdas",[]],{"name":"content","code":"of coding"},{"name":"input","code":""}],[["gavno",[]],{"name":"input","code":""}],[["new",[]],{"name":"input","code":""}]]';
-    location.reload();
-}
-header.appendChild(btndef);
-let btnsave = document.createElement('button');
-btnsave.innerText = 'save';
-btnsave.type = 'button';
-btnsave.onclick = function() {
-    saveAll();
-}
-header.appendChild(btnsave);
-let addSection = function() {
-    let secta = Fabric.create('section');
-    secta.render(main);
-    let input = Fabric.create('input');
-    input.render(secta.code);
-    // saveAll();
-}
-btn.onclick = addSection;
 let saveAll = function() {
     let result = [];
 
@@ -50,36 +29,44 @@ let saveAll = function() {
     result = recurs(main);
     window.localStorage.mainContent = JSON.stringify(result);
 }
+btndef.innerText = 'set default';
+btndef.onclick = function() {
+    window.localStorage.mainContent = '[[["kakaka",[]],{"name":"content","code":"will be"},{"name":"content","code":"text"},{"name":"input","code":""}],[["sadasdas",[]],{"name":"content","code":"of coding"},{"name":"input","code":""}],[["block3",[]],{"name":"input","code":""}],[["new",[]],{"name":"input","code":""}]]';
+    location.reload();
+}
+header.appendChild(btndef);
+let btnsave = document.createElement('button');
+btnsave.innerText = 'save';
+btnsave.type = 'button';
+btnsave.onclick = saveAll;
+header.appendChild(btnsave);
+let addSection = function() {
+    let secta = Fabric.create('section');
+    secta.render(main);
+    let input = Fabric.create('input');
+    input.render(secta.code);
+    saveAll();
+}
+btn.onclick = addSection;
 
 function Fabric() {}
 Fabric.prototype.render = function(noda) {
     noda.appendChild(this.code);
 };
-Fabric.prototype.dragenterFun = function(e) {
-    // this.style.border = '3px solid red';
-}
-Fabric.prototype.dragleaveFun = function(e) {
-    // this.style.border = '';
-}
+Fabric.prototype.dragenterFun = function(e) {}
+Fabric.prototype.dragleaveFun = function(e) {}
 Fabric.prototype.dragStartFun = function(e) {
-    let temp = this.cloneNode(true);
-    console.log(temp);
     this.id = 'newid';
     e.dataTransfer.effectAllowed = "move";
-    // this.style.border = "3px dotted #000000";
-    // e.toElement.style.transform = 'rotate(5deg)';
     e.dataTransfer.setData("Text", this.id);
     e.stopPropagation();
 }
-Fabric.prototype.dragendFun = function(e) {
-    // this.style.border = "";
-}
+Fabric.prototype.dragendFun = function(e) {}
 Fabric.prototype.dragoverFun = function(e) {
     e.preventDefault();
     return false;
 }
 Fabric.prototype.dropFun = function(e) {
-    // this.style.border = '1px solid black';
     let id = e.dataTransfer.getData('Text');
     let elem = document.getElementById(id);
     if (this.tagName !== 'SECTION' && elem.tagName !== 'SECTION') {
@@ -94,6 +81,7 @@ Fabric.prototype.dropFun = function(e) {
     elem.id = '';
     e.preventDefault();
     e.stopPropagation();
+    saveAll();
     return false;
 }
 Fabric.create = function(type, text) {
@@ -156,6 +144,7 @@ Fabric.input = function() {
                 let tempor = Fabric.create('content', this.previousSibling.value);
                 this.parentNode.insertBefore(tempor.code, this.previousSibling);
                 this.previousSibling.value = '';
+                saveAll();
             }
         }
         this.parentNode.appendChild(baton);
@@ -190,6 +179,7 @@ Fabric.section = function(text) {
     divInner.className = 'blockHeader';
     cont.appendChild(divInner);
     let baton = Fabric.create('button');
+    baton.onclick = saveAll;
     baton.render(cont);
     divInner.onfocus = function(e) {
         this.style.width = '70%';

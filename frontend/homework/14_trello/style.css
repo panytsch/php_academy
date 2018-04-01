@@ -62,6 +62,18 @@ section * {
     border: 0;
 }
 
+header button {
+    width: 40%;
+    color: #ffffff;
+    padding: 3px 0;
+    background-color: #5aac44;
+    border-radius: 7px;
+    border: 0;
+    font: 400 20px/30px Arial, sans-serif;
+    width: 200px;
+    margin: 10px 20px;
+}
+
 .input {
     border: 0;
     background-color: #e2e4e6;
@@ -79,4 +91,10 @@ section * {
 
 .blockHeader:hover {
     cursor: pointer;
+}
+
+.tempDiv {
+    background-color: #5926C6;
+    border-radius: 5px;
+    height: 20px;
 }
