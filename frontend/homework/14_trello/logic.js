@@ -56,30 +56,30 @@ Fabric.prototype.render = function(noda) {
     noda.appendChild(this.code);
 };
 Fabric.prototype.dragenterFun = function(e) {
-    this.style.border = '3px solid red';
+    // this.style.border = '3px solid red';
 }
 Fabric.prototype.dragleaveFun = function(e) {
-    this.style.border = '';
+    // this.style.border = '';
 }
 Fabric.prototype.dragStartFun = function(e) {
     // let temp = this.cloneNode(true);
     // console.log(temp);
     this.id = 'newid';
     e.dataTransfer.effectAllowed = "move";
-    this.style.border = "3px dotted #000000";
+    // this.style.border = "3px dotted #000000";
     // e.toElement.style.transform = 'rotate(5deg)';
     e.dataTransfer.setData("Text", this.id);
     e.stopPropagation();
 }
 Fabric.prototype.dragendFun = function(e) {
-    this.style.border = "";
+    // this.style.border = "";
 }
 Fabric.prototype.dragoverFun = function(e) {
     e.preventDefault();
     return false;
 }
 Fabric.prototype.dropFun = function(e) {
-    this.style.border = '1px solid black';
+    // this.style.border = '1px solid black';
     let id = e.dataTransfer.getData('Text');
     let elem = document.getElementById(id);
     if (this.tagName !== 'SECTION' && elem.tagName !== 'SECTION') {
@@ -121,6 +121,21 @@ Fabric.content = function(text) {
     diva.setAttribute('class', 'content');
     diva.setAttribute('draggable', 'true');
     diva.innerHTML = text;
+    diva.onmouseover = function(e) {
+        if (this.childNodes.length > 1) {
+            return;
+        }
+        let newdiva = document.createElement('div');
+        newdiva.className = 'inner';
+        newdiva.innerText = 'X';
+        newdiva.onclick = function(e) {
+            this.parentNode.parentNode.removeChild(this.parentNode);
+        }
+        this.appendChild(newdiva);
+    }
+    diva.onmouseleave = function(e) {
+        this.removeChild(this.lastChild);
+    }
     this.code = diva;
 }
 Fabric.input = function() {
@@ -128,6 +143,30 @@ Fabric.input = function() {
     diva.setAttribute('placeholder', 'write new data');
     diva.setAttribute('class', 'input');
     diva.setAttribute('type', 'text');
+    diva.onfocus = function(e) {
+        if (this.nextSibling && this.nextSibling.className === 'addBtn') {
+            this.parentNode.removeChild(this.nextSibling);
+        }
+        let baton = document.createElement('button');
+        baton.innerText = 'add block';
+        baton.className = 'addBtn';
+        baton.onclick = function(e) {
+            if (this.previousSibling.value) {
+                let tempor = Fabric.create('content', this.previousSibling.value);
+                this.parentNode.insertBefore(tempor.code, this.previousSibling);
+                this.previousSibling.value = '';
+            }
+        }
+        this.parentNode.appendChild(baton);
+    }
+    diva.onblur = function(e) {
+        if (e.relatedTarget && e.relatedTarget.className === 'addBtn') {
+            return;
+        }
+        if (this.nextSibling.className === 'addBtn') {
+            this.parentNode.removeChild(this.nextSibling);
+        }
+    }
     this.code = diva;
 }
 Fabric.button = function(text = 'button') {
@@ -136,12 +175,8 @@ Fabric.button = function(text = 'button') {
     btne.innerText = 'OK';
     btne.style.width = '0';
     btne.style.display = 'none';
-    btne.onclick = function(e) {
-
-    }
     this.code = btne;
 }
-
 Fabric.section = function(text) {
     let diva = document.createElement('section');
     diva.setAttribute('draggable', 'true');
@@ -173,6 +208,9 @@ mainarray.map(y => {
     let secta = Fabric.create('section', y[0][0]);
     secta.render(main);
     for (let i = 1; i < y.length; i++) {
+        if (y[i] == false) {
+            continue;
+        }
         let tempor = Fabric.create(y[i].name, y[i].code);
         tempor.render(secta.code);
     }

@@ -13,6 +13,8 @@ section {
     width: 400px;
     align-content: center;
     justify-content: flex-start;
+    background-color: #e2e4e6;
+    border-radius: 5px;
 }
 
 section * {
@@ -23,8 +25,20 @@ section * {
 
 .content {
     display: flex;
-    border: 1px solid black;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 5px;
     min-height: 30px;
+    position: relative;
+}
+
+.content .inner {
+    position: absolute;
+    top: -3px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
 }
 
 #newElement {
@@ -34,4 +48,26 @@ section * {
 .blockHeader {
     background-color: inherit;
     border: 0;
+}
+
+.addBtn {
+    width: 40%;
+    color: #ffffff;
+    padding: 3px 0;
+    background-color: #5aac44;
+    border-radius: 7px;
+    border: 0;
+}
+
+.input {
+    border: 0;
+}
+
+.input:hover {
+    background-color: #C3E1D4;
+    cursor: pointer;
+}
+
+.blockHeader:hover {
+    cursor: pointer;
 }
