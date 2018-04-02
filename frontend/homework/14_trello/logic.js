@@ -35,6 +35,9 @@ btndef.onclick = function() {
     location.reload();
 }
 header.appendChild(btndef);
+if (!window.localStorage.mainContent) {
+    btndef.onclick();
+}
 let btnsave = document.createElement('button');
 btnsave.innerText = 'save';
 btnsave.type = 'button';
