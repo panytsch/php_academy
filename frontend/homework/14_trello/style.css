@@ -1,0 +1,111 @@
+body {
+    background-color: #B8E14F;
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px;
+    background-color: #8491F8;
+    width: 280px;
+    align-content: center;
+    justify-content: flex-start;
+    background-color: #e2e4e6;
+    border-radius: 5px;
+    position: relative;
+}
+
+section * {
+    margin: 5px 5px;
+    font: 400 18px/30px Arial, sans-serif;
+    padding: 0 7px;
+}
+
+.content {
+    display: flex;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    min-height: 30px;
+    position: relative;
+    width: 250px;
+}
+
+.inner {
+    position: absolute;
+    top: -3px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+#newElement {
+    background-color: #B7B8FFFF;
+}
+
+.blockHeader {
+    background-color: inherit;
+    border: 0;
+}
+
+.addBtn {
+    width: 40%;
+    color: #ffffff;
+    padding: 3px 0;
+    background-color: #5aac44;
+    border-radius: 7px;
+    border: 0;
+}
+
+header button {
+    width: 40%;
+    color: #ffffff;
+    padding: 3px 0;
+    background-color: #5aac44;
+    border-radius: 7px;
+    border: 0;
+    font: 400 20px/30px Arial, sans-serif;
+    width: 200px;
+    margin: 10px 20px;
+}
+
+.input {
+    border: 0;
+    background-color: #e2e4e6;
+}
+
+.input:hover {
+    background-color: #C3E1D4;
+    cursor: pointer;
+}
+
+.input:focus {
+    background-color: #ffffff;
+    outline: none;
+}
+
+.blockHeader:hover {
+    cursor: pointer;
+}
+
+.tempDiv {
+    background-color: #527F79;
+    border-radius: 5px;
+}
+
+.clone {
+    pointer-events: none;
+    position: absolute;
+    top: -10000px;
+    transform: rotate(5deg);
+    margin: 5px 5px;
+    font: 400 18px/30px Arial, sans-serif;
+    padding: 0 7px;
+}
