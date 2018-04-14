@@ -49,7 +49,7 @@ let addSection = function() {
     secta.render(main);
     let input = Fabric.create('input');
     input.render(secta.code);
-    // saveAll();
+    saveAll();
 }
 btn.onclick = addSection;
 
@@ -90,6 +90,7 @@ Fabric.prototype.dragStartFun = function(e) {
     e.dataTransfer.effectAllowed = "move";
 }
 Fabric.prototype.dragendFun = function(e) {
+    e.stopPropagation();
     dragElem.element.style.opacity = '1';
     let clone = document.querySelector('.clone');
     let clone2 = document.querySelector('#tempId');
@@ -97,7 +98,7 @@ Fabric.prototype.dragendFun = function(e) {
     clone2.parentNode.insertBefore(clone2.firstChild, clone2);
     clone.parentNode.removeChild(clone);
     clone2.parentNode.removeChild(clone2);
-    e.stopPropagation();
+    saveAll();
 }
 Fabric.prototype.dragoverFun = function(e) {
     e.stopPropagation();
@@ -124,15 +125,14 @@ Fabric.prototype.dragoverFun = function(e) {
     }
     let newItem = document.querySelector('#tempId');
     if (dragElem.element.tagName === 'DIV') {
-        // console.log(1);
-        if (this.tagName === 'DIV') {
+        if (this.tagName === 'DIV' && this.className === 'content') {
             if (delta >= 0) {
                 this.parentNode.insertBefore(newItem, this.nextSibling);
             } else {
                 this.parentNode.insertBefore(newItem, this);
             }
         } else if (this.tagName === 'SECTION') {
-            this.insertBefore(newItem, this.lastChild);
+            this.lastChild.tagName === 'INPUT' ? this.insertBefore(newItem, this.lastChild) : this.insertBefore(newItem, this.childNodes[1]);
         }
     } else if (dragElem.element.tagName === 'SECTION') {
         if (this.tagName === 'DIV') {
@@ -212,7 +212,7 @@ Fabric.input = function() {
                 let tempor = Fabric.create('content', this.previousSibling.value);
                 this.parentNode.insertBefore(tempor.code, this.previousSibling);
                 this.previousSibling.value = '';
-                // saveAll();
+                saveAll();
             }
         }
         this.parentNode.appendChild(baton);
@@ -247,7 +247,7 @@ Fabric.section = function(text) {
     divInner.className = 'blockHeader';
     cont.appendChild(divInner);
     let baton = Fabric.create('button');
-    // baton.onclick = saveAll;
+    baton.onclick = saveAll;
     baton.render(cont);
     divInner.onfocus = function(e) {
         this.style.width = '60%';
@@ -274,7 +274,9 @@ Fabric.section = function(text) {
         this.firstChild ? this.insertBefore(newdiva, this.firstChild) : this.appendChild(newdiva);
     }
     diva.onmouseleave = function(e) {
-        this.removeChild(this.firstChild);
+        if (this.firstChild.id === 'firstId') {
+            this.removeChild(this.firstChild);
+        }
     }
     this.code.appendChild(cont);
 }
@@ -284,10 +286,9 @@ mainarray.map(y => {
     let secta = Fabric.create('section', y[0][0]);
     secta.render(main);
     for (let i = 1; i < y.length; i++) {
-        if (y[i] == false) {
-            continue;
+        if (y[i] && y[i].name) {
+            let tempor = Fabric.create(y[i].name, y[i].code);
+            tempor.render(secta.code);
         }
-        let tempor = Fabric.create(y[i].name, y[i].code);
-        tempor.render(secta.code);
     }
 });
