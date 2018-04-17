@@ -1,0 +1,20 @@
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  border: 1px solid rgb(69, 45, 147);
+  border-radius: 5px;
+  margin: 1em 0;
+  background-color: #c5e7de;
+  padding-bottom: 1em;
+}
+
+.description {
+  margin: 0 1em;
+  padding: 0 1em;
+}
