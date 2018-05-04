@@ -1,13 +1,14 @@
-import React from 'react'
-import Styles from './Styles'
-import { Form, Field } from 'react-final-form'
+import React from "react";
+import Styles from "./Styles";
+import { Form, Field } from "react-final-form";
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-const FormCreate = ({ onSubmit }) => (
+const FormCreate = ({ onSubmit, initialValues }) => (
   <Styles>
     <Form
       onSubmit={onSubmit}
+      initialValues={initialValues}
       render={({ handleSubmit, reset, submitting, pristine, values }) => (
         <form onSubmit={handleSubmit}>
           <div>
