@@ -19,6 +19,7 @@ class App extends Component {
 
   onSubmit(_values) {
     const listRef = firebase.database().ref("list");
+    console.log(listRef);
     listRef.push(_values);
   }
 
@@ -28,12 +29,14 @@ class App extends Component {
       <div>
         <FormCreate onSubmit={this.onSubmit} />
         <ul>
-          {Object.entries(list).map(([key, { firstName, lastName, email }]) => (
-            <li key={key}>
-              {`${firstName} - ${lastName}: ${email}`}
-              <Link to={key}>Edit</Link>
-            </li>
-          ))}
+          {Object.entries(list).map(
+            ([key, { firstName, lastName, email, sex }]) => (
+              <li key={key}>
+                {`${firstName} - ${lastName}: ${email} ${sex || ""}`}
+                <Link to={key}>Edit</Link>
+              </li>
+            )
+          )}
         </ul>
       </div>
     );
