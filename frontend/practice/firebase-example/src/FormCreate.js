@@ -21,6 +21,9 @@ const FormCreate = ({ onSubmit, initialValues }) => (
         if (!values.email) {
           errors.email = "Required";
         }
+        if (!values.country) {
+          errors.country = "Required";
+        }
         return errors;
       }}
       render={({ handleSubmit, reset, submitting, pristine, values }) => (
@@ -81,8 +84,18 @@ const FormCreate = ({ onSubmit, initialValues }) => (
           </div>
           <div>
             <label>Country</label>
-            <Field name="country" component="select">
-              {country.map(i => <option value={i}>{i}</option>)}
+            <Field name="country">
+              {obj => {
+                return (
+                  <div>
+                    <select {...obj.input}>
+                      {country.map(i => <option value={i}>{i}</option>)}
+                    </select>
+                    {obj.meta.error &&
+                      obj.meta.touched && <span>{obj.meta.error}</span>}
+                  </div>
+                );
+              }}
             </Field>
           </div>
           <div>
