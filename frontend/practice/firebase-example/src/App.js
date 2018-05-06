@@ -27,17 +27,30 @@ class App extends Component {
     return (
       <div>
         <FormCreate onSubmit={this.onSubmit} />
-        <ul>
+        <table>
+          <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Sex</td>
+            <td>Country</td>
+            <td>Change</td>
+          </tr>
           {Object.entries(list).map(
             ([key, { firstName, lastName, email, sex, country }]) => (
-              <li key={key}>
-                {`${firstName} - ${lastName}: ${email} ${sex ||
-                  "Nope"} ${country || "Vacanda :)"}`}
-                <Link to={key}>Edit</Link>
-              </li>
+              <tr key={key}>
+                <td>{firstName}</td>
+                <td>{lastName}</td>
+                <td>{email}</td>
+                <td>{sex || "not defined"}</td>
+                <td>{country || "Vacanda"}</td>
+                <td>
+                  <Link to={key}>Edit</Link>
+                </td>
+              </tr>
             )
           )}
-        </ul>
+        </table>
       </div>
     );
   }
