@@ -29,9 +29,10 @@ class App extends Component {
         <FormCreate onSubmit={this.onSubmit} />
         <ul>
           {Object.entries(list).map(
-            ([key, { firstName, lastName, email, sex }]) => (
+            ([key, { firstName, lastName, email, sex, country }]) => (
               <li key={key}>
-                {`${firstName} - ${lastName}: ${email} ${sex || ""}`}
+                {`${firstName} - ${lastName}: ${email} ${sex ||
+                  "Nope"} ${country || "Vacanda :)"}`}
                 <Link to={key}>Edit</Link>
               </li>
             )
