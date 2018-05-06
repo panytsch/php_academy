@@ -1,6 +1,7 @@
 import React from "react";
 import Styles from "./Styles";
 import { Form, Field } from "react-final-form";
+import country from "./Countries";
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -76,6 +77,12 @@ const FormCreate = ({ onSubmit, initialValues }) => (
                   </div>
                 );
               }}
+            </Field>
+          </div>
+          <div>
+            <label>Country</label>
+            <Field name="country" component="select">
+              {country.map(i => <option value={i}>{i}</option>)}
             </Field>
           </div>
           <div>

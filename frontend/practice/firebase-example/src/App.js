@@ -19,7 +19,6 @@ class App extends Component {
 
   onSubmit(_values) {
     const listRef = firebase.database().ref("list");
-    console.log(listRef);
     listRef.push(_values);
   }
 
